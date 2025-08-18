@@ -62,8 +62,21 @@ fn main() {
     for number in 1..6 {
         println!("The number is {number}");
     }
-}
 
+    let mut count = 0;
+    'first: loop {
+        count += 1;
+        if count > 5 {break}
+        println!("outer loop");
+        'second: loop {
+            println!{"inner loop"};
+            continue 'first;
+        }
+        println!("We never reach this");
+    }
+
+    println!("Finished loop");
+}
 fn function_after(x: u16) {
     println!("The value is {x}");
 }
